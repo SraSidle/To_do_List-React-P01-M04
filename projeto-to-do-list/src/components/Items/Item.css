@@ -1,0 +1,36 @@
+.task--list--item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    background-color: white;
+    margin: 0.2rem;
+    border-radius: 0.3rem;
+}
+
+.check--item,
+.icons-edit-delete {
+  display: flex;
+}
+
+.check--item > input {
+  width: 2.5rem;
+  color: aquamarine;
+}
+
+.task--list--item > input:focus {
+  background-color: blue;
+}
+
+.bi{
+  font-size:larger;
+  padding: .1rem;
+}
+
+.bi-pencil-square:hover {
+  color: aquamarine;
+}
+
+.bi-trash:hover {
+  color: rgb(173, 14, 14);
+}
