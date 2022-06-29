@@ -8,9 +8,9 @@ function Modal() {
         <span>X</span>
           <p> Tem certeza que deseja remover esse item?</p>       
         </div>
-        <div class="choice">
-          <button class="yes">Sim</button>
-          <button class="no">Não</button>
+        <div className="choice">
+          <button className="yes">Sim</button>
+          <button className="no">Não</button>
         </div>
         <p className="alert"> Em caso de remoção. Esse item deverá ser criado novamente!</p>
       </div>
