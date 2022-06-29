@@ -1,0 +1,23 @@
+.align-end{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1rem 0;
+}
+.search--task{
+    width: 12rem;   
+    padding: .4rem;
+    border: 1px solid gray;
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.search{
+    width: 8rem;
+}
+
+.bi-search{
+    font-size:medium;
+    color: gray;
+}
