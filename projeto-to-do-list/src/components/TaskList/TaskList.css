@@ -1,13 +1,3 @@
-.task--list--item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 95%;
-  background-color: white;
-  margin: 0.2rem;
-  border-radius: 0.3rem;
-}
-
 .task--list {
   position: relative;
   background-color: #fcb4f64d;
