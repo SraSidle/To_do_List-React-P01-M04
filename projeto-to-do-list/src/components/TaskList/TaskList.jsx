@@ -1,7 +1,7 @@
 import "./TaskList.css";
 import { tasks } from "../../mocks/list";
 import Search from "../Search/Search";
-import Item from "../Items/Item";
+import Item from "../Item/Item";
 
 function TaskList() {
   return (
@@ -9,7 +9,7 @@ function TaskList() {
       {" "}
       <Search />
       {tasks.map((task, index) => (      
-         <Item />
+         <Item  key={`task--list-${index}`}/>
 ))}
     </div>
   );
