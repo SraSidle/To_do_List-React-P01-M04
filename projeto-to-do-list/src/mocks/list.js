@@ -13,4 +13,9 @@ export const tasks = [{
     index: 3,
     value: true
 },
+{
+    toDo: "Estilizar",
+    index: 3,
+    value: true
+},
 ]
