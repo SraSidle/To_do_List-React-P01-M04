@@ -1,16 +1,24 @@
 import "./TaskList.css";
-import { tasks } from "../../mocks/list";
+import React,{useState, useEffect} from 'react'
+import { TasksServices } from "../../services/TasksServices";
 import Search from "../Search/Search";
 import Item from "../Item/Item";
 
 function TaskList() {
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(()=>{
+     TasksServices.getlista().then(setTasks)
+  }, [])
+
   return (
     <div className="task--list">
       {" "}
       <Search />
-      {tasks.map((task, index) => (      
-         <Item  key={`task--list-${index}`}/>
-))}
+      {tasks.map((task, index) => (
+        <Item key={`task--list-${index}`} task={task}/>
+      ))}
     </div>
   );
 }
