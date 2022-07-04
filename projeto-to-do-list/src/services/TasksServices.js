@@ -8,6 +8,6 @@ export const TasksServices = {
      fetch((Api.baseURL + "/tasks"), {method: "GET"}).then(parseResponse),  
     getById: (id) =>
      fetch((Api.baseURL + "/tasks/" +`${id}`), {method: "GET"}).then(parseResponse),
-     create: (task) =>
-        fetch(Api.baseURL + "/tasks/create-" + task, {method: "POST"}).then(parseResponse),
+    create: (task) =>
+     fetch(Api.baseURL + "/tasks/create-" + task, {method: "POST"}).then(parseResponse),
 }
