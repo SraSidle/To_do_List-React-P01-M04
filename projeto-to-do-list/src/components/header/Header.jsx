@@ -6,8 +6,8 @@ import "./header.css";
 function Header() {
   const [newTask, setnewTask] = useState();
 
-  async function createT(task) {
-    const response = await fetch(Api.baseURL, {
+   const create = async (task) => {
+    const response =  fetch(Api.baseURL, {
       method: "post",
       headers: {
         "Content-type": "application/json",
@@ -16,18 +16,22 @@ function Header() {
       body: JSON.stringify(task),
     });
 
-    const res = await response.json();
+    const res = await response; //.json(); dava erro de promisse
     setnewTask(res);
+    console.log("Res", res)
+    console.log("response", response)
     console.log("newTask", newTask)
   }
 
   const handlerCreateTask = async () => {
-    const value = document.getElementById("input--create").value;
-    await createT(value);
+    const value = await document.getElementById("input--create").value;
+    console.log("value", value) // o que queremos está no value
+    await create(value);
   };
 
   useEffect(() => {
     handlerCreateTask();
+    
   }, []);
 
   return (
