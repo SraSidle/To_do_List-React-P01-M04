@@ -21,3 +21,7 @@
     font-size:medium;
     color: gray;
 }
+
+#display{
+    display: none;
+}
