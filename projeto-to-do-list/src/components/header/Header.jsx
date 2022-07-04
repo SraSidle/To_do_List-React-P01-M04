@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TasksServices } from "../../services/TasksServices";
+//import { TasksServices } from "../../services/TasksServices";
 import { Api } from "../../helpers/Api";
 import "./header.css";
 
@@ -7,7 +7,7 @@ function Header() {
   const [newTask, setnewTask] = useState();
 
    const create = async (task) => {
-    const response =  fetch(Api.baseURL, {
+    const response = await fetch(Api.baseURL, {
       method: "post",
       headers: {
         "Content-type": "application/json",
@@ -16,16 +16,16 @@ function Header() {
       body: JSON.stringify(task),
     });
 
-    const res = await response; //.json(); dava erro de promisse
+    const res = response; //.json(); dava erro de promisse
     setnewTask(res);
-    console.log("Res", res)
-    console.log("response", response)
-    console.log("newTask", newTask)
+    // console.log("Res", res)
+    // console.log("response", response)
+    // console.log("newTask", newTask)
   }
 
   const handlerCreateTask = async () => {
     const value = await document.getElementById("input--create").value;
-    console.log("value", value) // o que queremos está no value
+   // console.log("value", value) // o que queremos está no value
     await create(value);
   };
 
