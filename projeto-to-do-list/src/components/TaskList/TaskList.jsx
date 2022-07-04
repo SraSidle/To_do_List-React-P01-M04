@@ -1,7 +1,7 @@
 import "./TaskList.css";
 import React,{useState, useEffect} from 'react'
 import { TasksServices } from "../../services/TasksServices";
-import Search from "../Search/Search";
+import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
 function TaskList() {
@@ -15,7 +15,7 @@ function TaskList() {
   return (
     <div className="task--list">
       {" "}
-      <Search />
+      <SearchTask />
       {tasks.map((task, index) => (
         <Item key={`task--list-${index}`} task={task}/>
       ))}
@@ -25,4 +25,3 @@ function TaskList() {
 
 export default TaskList;
 
-// linha 11 erro pq index e task nao esta disponivel
