@@ -1,10 +1,7 @@
-import React from 'react'
-import { useState } from "react";
+import React from "react";
 import "./Item.css";
-import { tasks } from "../../mocks/list";
 
 function Item(props) {
-  console.log(props)
   return (
     <div className="task--list--item" key={`task--list-${"index"}`}>
       <div className="check--item">
@@ -22,4 +19,3 @@ function Item(props) {
 }
 
 export default Item;
-// Na linha 6/ o key vai ficar no tasklist, rever a aula / na key tem o "index" no template e na 9 trm um task.toDo
