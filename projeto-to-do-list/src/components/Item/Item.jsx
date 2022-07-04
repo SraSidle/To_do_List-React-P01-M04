@@ -5,9 +5,9 @@ function Item(props) {
   return (
     <div className="task--list--item" key={`task--list-${"index"}`}>
       <div className="check--item">
-        <label className="style-checkbox">
-          <input type="checkbox" />
-        </label>
+       <label className="style-checkbox">
+        <input type="checkbox" /> 
+        </label> 
         {props.task.title}
       </div>
       <div className="icons-edit-delete">
