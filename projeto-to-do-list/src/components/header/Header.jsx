@@ -1,29 +1,34 @@
-import React,{useState, useEffect }  from 'react'
-import { TasksServices } from '../../services/TasksServices';
-import {Api} from '../../helpers/Api'
+import React, { useState, useEffect } from "react";
+import { TasksServices } from "../../services/TasksServices";
+import { Api } from "../../helpers/Api";
 import "./header.css";
 
 function Header() {
   const [newTask, setnewTask] = useState();
 
-  useEffect(()=>{
-     TasksServices.getlista().then(setnewTask)
-  }, [])
-
-  const task = newTask
-
-  async function create(task){
+  async function createT(task) {
     const response = await fetch(Api.baseURL, {
-      method: "POST",
+      method: "post",
       headers: {
-        'Content-type': 'application/json',
+        "Content-type": "application/json",
       },
-      mode: 'cors',
+      mode: "cors",
       body: JSON.stringify(task),
-    })
-    const newTask = await response.json()
-    setnewTask([newTask])
+    });
+
+    const res = await response.json();
+    setnewTask(res);
+    console.log("newTask", newTask)
   }
+
+  const handlerCreateTask = async () => {
+    const value = document.getElementById("input--create").value;
+    await createT(value);
+  };
+
+  useEffect(() => {
+    handlerCreateTask();
+  }, []);
 
   return (
     <header>
@@ -31,14 +36,18 @@ function Header() {
         <i className="bi bi-list-check"></i>To do List
       </h1>
       <div>
-        <button type="button" className="bi" onClick={() => create(task)}>
+        <button
+          type="button"
+          className="bi"
+          onClick={() => handlerCreateTask()}
+        >
           <i className="bi bi-plus-lg"></i>
         </button>
         <input
+          id="input--create"
           type="text"
           placeholder="Adicione uma nova tarefa"
-         // value={task}
-         //onChange={(ev) => setnewTask(ev.target.value)}
+          // onChange={handlerChangeCreate}
         />
       </div>
     </header>
