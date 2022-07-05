@@ -14,7 +14,7 @@ function TaskList() {
 
   return (
     <div className="task--list">
-      {" "}
+      {/* {""} */}
       <SearchTask />
       {tasks.map((task, index) => (
         <Item key={`task--list-${index}`} task={task}/>
