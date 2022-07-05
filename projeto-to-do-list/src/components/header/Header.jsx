@@ -1,38 +1,49 @@
 import React, { useState, useEffect } from "react";
-//import { TasksServices } from "../../services/TasksServices";
+import { TasksServices } from "../../services/TasksServices";
 import { Api } from "../../helpers/Api";
 import "./header.css";
 
 function Header() {
+
+  const [tasks, setTasks] = useState([]);
+
   const [newTask, setnewTask] = useState();
 
-   const create = async (task) => {
-    const response = await fetch(Api.baseURL, {
+  console.log(tasks)
+   const create = async () => {
+    const response = await fetch(Api.baseURL + "/tasks", {//null
       method: "post",
       headers: {
         "Content-type": "application/json",
       },
       mode: "cors",
-      body: JSON.stringify(task),
+      body: JSON.stringify(newTask),
     });
 
-    const res = response; //.json(); dava erro de promisse
-    setnewTask(res);
-    // console.log("Res", res)
-    // console.log("response", response)
-    // console.log("newTask", newTask)
+    const createdTask = await response.json()
+    console.log("esse é o cre",createdTask)
+    setTasks([createdTask]);
+  
+   // console.log("Res", res)
+    console.log("response", response)
+    console.log("newTask", newTask)
   }
 
   const handlerCreateTask = async () => {
     const value = await document.getElementById("input--create").value;
-   // console.log("value", value) // o que queremos está no value
-    await create(value);
+   console.log("value", value) // o que queremos está no value
+
+   if(value !== ""){
+      await create(value);
+   } else {
+     
+   }
+   
   };
 
   useEffect(() => {
-    handlerCreateTask();
-    
-  }, []);
+    handlerCreateTask(); 
+}, []);
 
   return (
     <header>
@@ -51,7 +62,8 @@ function Header() {
           id="input--create"
           type="text"
           placeholder="Adicione uma nova tarefa"
-          // onChange={handlerChangeCreate}
+          //value=""
+          //onChange={handlerChangeCreate}
         />
       </div>
     </header>
