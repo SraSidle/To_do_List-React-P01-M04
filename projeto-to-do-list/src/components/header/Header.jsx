@@ -1,73 +1,68 @@
 import React, { useState, useEffect } from "react";
-import { TasksServices } from "../../services/TasksServices";
 import { Api } from "../../helpers/Api";
 import "./header.css";
 
-function Header() {
-
-  const [tasks, setTasks] = useState([]);
-
+function Header({ setUpdateList }) {
   const [newTask, setnewTask] = useState();
+  const [modalCreate, setModalCreate] = useState(false);
+  console.log(newTask);
 
-  console.log(tasks)
-   const create = async () => {
-    const response = await fetch(Api.baseURL + "/tasks", {//null
+  const create = async () => {
+    const response = await fetch(Api.baseURL + "/tasks", {
       method: "post",
       headers: {
         "Content-type": "application/json",
       },
       mode: "cors",
-      body: JSON.stringify(newTask),
+      body: JSON.stringify({
+        title: newTask,
+        checked: false,
+      }),
     });
-
-    const createdTask = await response.json()
-    console.log("esse é o cre",createdTask)
-    setTasks([createdTask]);
-  
-   // console.log("Res", res)
-    console.log("response", response)
-    console.log("newTask", newTask)
-  }
-
-  const handlerCreateTask = async () => {
-    const value = await document.getElementById("input--create").value;
-   console.log("value", value) // o que queremos está no value
-
-   if(value !== ""){
-      await create(value);
-   } else {
-     
-   }
-   
+    setUpdateList((prev) => !prev);
   };
 
-  useEffect(() => {
-    handlerCreateTask(); 
-}, []);
+  const handlerCreateTask = async () => {
+    if (newTask) {
+      await create(newTask);
+      setModalCreate((prev) => !prev);
+     
+    }
+     return(
+      <div className="Modal--create--overlay" data-anime="left">
+      <div className="Modal--create">
+
+      <p>Tarefa criada com sucesso!</p>
+  </div> 
+  </div>     
+     )
+  };
 
   return (
     <header>
       <h1>
         <i className="bi bi-list-check"></i>To do List
       </h1>
-      <div>
-        <button
-          type="button"
-          className="bi"
-          onClick={() => handlerCreateTask()}
-        >
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          handlerCreateTask();
+        }}
+      >
+        <button type="submit" className="bi">
           <i className="bi bi-plus-lg"></i>
         </button>
         <input
           id="input--create"
           type="text"
           placeholder="Adicione uma nova tarefa"
-          //value=""
-          //onChange={handlerChangeCreate}
+          onChange={(event) => setnewTask(event.target.value)}
         />
-      </div>
+      </form>
     </header>
   );
 }
 
 export default Header;
+
+//linha 36 =>

@@ -17,9 +17,24 @@
     width: 8rem;
 }
 
+#button-search{
+    background-color: transparent;
+   border: none;
+}
+
+#button-search:hover{
+  background-color: white;
+  border-radius: 45%;
+  cursor: pointer;
+}
+
 .bi-search{
     font-size:medium;
-    color: gray;
+    color: white;
+}
+
+.bi-search:hover{
+   color: gray;
 }
 
 #display{

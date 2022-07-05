@@ -1,48 +1,47 @@
 import React, { useState, useEffect } from "react";
 import "./search.css";
-//import { tasks } from "../../mocks/list";
-//import { Api } from "../../helpers/Api";
-// import Item from "../Item/Item";
-// import { render } from "@testing-library/react";
 import { TasksServices } from "../../services/TasksServices";
 
-function SearchTask() {
-  const [found, setFound] = useState();
+function SearchTask({ setTasks }) {
+  const [taskSearch, setTaskSearch] = useState();
 
   const searchClick = async () => {
-    const task_id_search = document.getElementById("search--input").value;
-    const response = await TasksServices.getById(task_id_search);
-    console.log("response:", response)
-    console.log("found:", found) //found só tem o mesmo valor de response após dois clicks
-    setFound(response);  
-};
+    if (taskSearch) {
+      const response = await TasksServices.getById(taskSearch);
+      setTasks([response]);
+    } else {
+      TasksServices.getlista().then(setTasks);
+    }
+    // console.log("response:", response)
+    // console.log("found:", found) //found só tem o mesmo valor de response após dois clicks
+  };
 
-  useEffect(() => {
-    searchClick(); 
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <>
-      {" "}
-      <div className="align-end">
-        <div className="search--task">
-          <input
-            id="search--input"
-            className="search"
-            type="text"
-            placeholder="Pesquise uma Tarefa"
-          />
-          <button
-            type="button"
-            onClick={() => {
-              searchClick();
-            }}
-          >
-            <i className="bi bi-search"></i>
-          </button>
-        </div>
-      </div> 
-    </>
+    <div className="align-end">
+      <form
+        className="search--task"
+        onSubmit={(event) => {
+          event.preventDefault();
+          searchClick();
+        }}
+      >
+        <input
+          id="search--input"
+          className="search"
+          type="text"
+          placeholder="Pesquise uma Tarefa"
+          onChange={(event) => setTaskSearch(event.target.value)}
+        />
+        <button
+          id="button-search"
+          type="submit"
+        >
+          <i className="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
   );
 }
 
