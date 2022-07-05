@@ -13,10 +13,9 @@ function SearchTask() {
     const task_id_search = document.getElementById("search--input").value;
     const response = await TasksServices.getById(task_id_search);
     console.log("response:", response)
-    console.log("found:", found)
-    setFound(response);
-    
-  };
+    console.log("found:", found) //found só tem o mesmo valor de response após dois clicks
+    setFound(response);  
+};
 
   useEffect(() => {
     searchClick(); 
