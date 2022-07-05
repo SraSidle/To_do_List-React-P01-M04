@@ -1,0 +1,38 @@
+.Modal--create--overlay{
+    width: 90%;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  justify-content: flex-end;
+  align-items: flex-start;
+  overflow-y: auto;
+  z-index: 9999;
+  margin: 1rem;
+}
+
+.Modal--create{
+    width: 15rem;
+    background-color: white;
+    border: 2px solid green;
+    color: green;
+}
+
+.end{
+  display: flex;
+  justify-content: flex-end;
+  padding:.4rem .4rem 0 0;
+}
+
+.Modal--create > p{
+  margin: 0.5rem 1rem 1rem 1rem;
+ 
+}
+
+[data-anime]{
+  opacity: 0;
+  transition: .6s;
+}
+
+[data-anime="rigth"]{
+  opacity: 1;
+}
