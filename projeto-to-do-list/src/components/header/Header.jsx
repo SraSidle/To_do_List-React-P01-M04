@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Api } from "../../helpers/Api";
 import "./header.css";
 
 function Header({ setUpdateList }) {
   const [newTask, setnewTask] = useState();
-  const [modalCreate, setModalCreate] = useState(false);
-  console.log(newTask);
 
   const create = async () => {
     const response = await fetch(Api.baseURL + "/tasks", {
@@ -25,17 +23,11 @@ function Header({ setUpdateList }) {
   const handlerCreateTask = async () => {
     if (newTask) {
       await create(newTask);
-      setModalCreate((prev) => !prev);
-     
+      document.querySelector(".Modal--create--overlay").style.display = "flex"
+      setTimeout (() => {
+         document.querySelector(".Modal--create--overlay").style.display = "none"
+      }, 2e3)  
     }
-     return(
-      <div className="Modal--create--overlay" data-anime="left">
-      <div className="Modal--create">
-
-      <p>Tarefa criada com sucesso!</p>
-  </div> 
-  </div>     
-     )
   };
 
   return (
@@ -43,6 +35,11 @@ function Header({ setUpdateList }) {
       <h1>
         <i className="bi bi-list-check"></i>To do List
       </h1>
+      <div className="Modal--create--overlay">
+        <div className="Modal--create">
+          <p>Tarefa criada com sucesso!</p>
+        </div>
+      </div>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -64,5 +61,3 @@ function Header({ setUpdateList }) {
 }
 
 export default Header;
-
-//linha 36 =>
