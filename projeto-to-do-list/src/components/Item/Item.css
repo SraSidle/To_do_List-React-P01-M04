@@ -1,11 +1,11 @@
 .task--list--item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
-    background-color: #70064E;
-    margin: 0.2rem;
-    border-radius: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  background-color: #70064e;
+  margin: 0.2rem;
+  border-radius: 0.3rem;
 }
 
 .check--item,
@@ -15,37 +15,40 @@
   align-items: center;
 }
 
-.check--item{
+.check--item {
   min-width: 80%;
 }
 
-.check--item > input{
+.check--item > input {
   width: 18px;
   height: 18px;
-  margin-right: .4rem;
+  margin-right: 0.4rem;
+  cursor: pointer;
 }
 
-.Task-name{
-    margin: 0;
-    font-size: small;
-    font-weight: 700;
-    color: white
+.Task-name {
+  margin: 0;
+  font-size: small;
+  font-weight: 700;
+  color: white;
 }
 
-.bi{
-  font-size:larger;
-  padding: .1rem;
+.bi {
+  font-size: larger;
+  padding: 0.1rem;
 }
 
 .bi-pencil-square,
-.bi-trash{
+.bi-trash {
   color: gray;
 }
 
 .bi-pencil-square:hover {
   color: rgb(0, 216, 58);
+  cursor: pointer;
 }
 
 .bi-trash:hover {
   color: rgb(212, 24, 24);
+  cursor: pointer;
 }

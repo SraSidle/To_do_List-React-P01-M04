@@ -18,13 +18,15 @@
 }
 
 #button-search{
-    background-color: transparent;
+   width: 2rem;
+   height: 2rem;
+   background-color: transparent;
    border: none;
 }
 
 #button-search:hover{
-  background-color: white;
-  border-radius: 45%;
+  background-color: rgba(0, 0, 0, 0.303);
+  border-radius: 50%;
   cursor: pointer;
 }
 

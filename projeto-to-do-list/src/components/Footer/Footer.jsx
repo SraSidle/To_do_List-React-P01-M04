@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer>
-      <p>
+      <p className="footer--p">
         Desenvolvido por <a href="https://github.com/SraSidle" target="_blank">
              @Sra_Sidle 
         </a>
