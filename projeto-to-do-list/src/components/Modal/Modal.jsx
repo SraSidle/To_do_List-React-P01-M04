@@ -1,22 +1,25 @@
-import React from 'react'
-import "./modal.css";
+import React from "react"
+import "./Modal.css";
+import Overlay from "../Overlay/Overlay";
 
+function Modal({ children, closeModal }) {
+  const handleClick = (event, canClose) => {
+    event.stopPropagation();
+    if (canClose) closeModal();
+  };
 
-function Modal() {
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <div className="header-modal">
-        <span>X</span>
-          <p> Tem certeza que deseja remover esse item?</p>       
-        </div>
-        <div className="choice">
-          <button className="yes">Sim</button>
-          <button className="no">Não</button>
-        </div>
-        <p className="alert"> Em caso de remoção. Esse item deverá ser criado novamente!</p>
+    <Overlay overlayClick={closeModal}>
+      <div className="Modal" onClick={handleClick}>
+        <span
+          className="Modal__close"
+          onClick={(event) => handleClick(event, true)}
+        >
+          +
+        </span>
+        <div className="Modal__body">{children}</div>
       </div>
-    </div>
+    </Overlay>
   );
 }
 

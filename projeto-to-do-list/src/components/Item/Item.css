@@ -33,14 +33,23 @@
   color: white;
 }
 
-.bi {
+.icons-edit-delete > button{
+  height: 2.5rem;
+  background: transparent;
+  outline: 0;
+  border: none;
+}
+
+button > .bi {
   font-size: larger;
   padding: 0.1rem;
 }
 
-.bi-pencil-square,
-.bi-trash {
+button > .bi-pencil-square,
+button > .bi-trash {
   color: gray;
+    width: 2rem;
+  height: 2rem;
 }
 
 .bi-pencil-square:hover {

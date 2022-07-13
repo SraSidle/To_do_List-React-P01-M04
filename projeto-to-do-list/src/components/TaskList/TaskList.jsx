@@ -1,22 +1,28 @@
 import "./TaskList.css";
 import React, { useState, useEffect } from "react";
 import { TasksServices } from "../../services/TasksServices";
+import ModalDelete from "../ModalDelete/ModalDelete";
 import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
-function TaskList({updateList}) {
+function TaskList({updateList, updateTask, deleteTask, deletedTask }) {
   //A chave é colocada para desconstruir a sintaxe props.updateList para se tornar apenas updateList
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     TasksServices.getlista().then(setTasks);
-  }, [updateList]);
+  }, [updateList, updateTask, deletedTask]);
 
   return (
     <div className="task--list">
       <SearchTask setTasks = {setTasks} />
       {tasks && tasks.map((task, index) => (
-        <Item key={`task--list-${index}`} task={task} />
+        <Item 
+          key={`task--list-${index}`}
+          task={task} 
+          // onModalDelete={setDelTaskModal(true)}
+          // onModalEdit={}
+          />
       ))}
     </div>
   );

@@ -1,15 +1,56 @@
-.modal-overlay {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  z-index: 9999;
+.Modal {
+  padding: 30px 80px 20px 20px;
+  min-width: 300px;
+  min-height: 200px;
+  max-width: 700px;
+  max-height: 450px;
+  background: #50c5ee;
+  position: relative;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
 }
 
-.modal {
+.Modal__close {
+  font-size: 2em;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  color: white;
+  transform: rotate(45deg);
+  transition: all 1s;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.Modal__close:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal__body {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 400px) {
+  .Modal {
+    padding: 15px 70px 15px 15px;
+  }
+}
+
+/* .modal {
   max-width: 90%;
   max-height: 60%;
   min-width: 35%;
@@ -21,56 +62,4 @@
   background-color: white;
   border-radius: 0.7rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-.header-modal {
-  width: 100%;
-  background: linear-gradient(#15b4db, #0b969b);
-  padding: 0.2rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.choice > button {
-  margin: 0.3rem;
-  padding: 0.7rem;
-  border-radius: 0.2rem;
-  font-weight: 700;
-  background-color: transparent;
-  box-shadow: 0px 0px 0px 1px #00000030;
-}
-
-.yes {
-  color: red;
-  border: 1px solid red;
-}
-
-.yes:hover {
-  color: white;
-  background-color: red;
-}
-
-.no {
-  color: green;
-  border: 1px solid green;
-}
-
-.no:hover {
-  color: white;
-  background-color: green;
-}
-span {
-  margin-left: 90%;
-}
-
-p {
-  max-width: 90%;
-}
-
-.alert {
-  font-weight: 600;
-  font-size: small;
-  margin-bottom: 1.5rem;
-}
+} */
