@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Api } from "../../helpers/Api";
 import "./header.css";
 
@@ -23,10 +23,11 @@ function Header({ setUpdateList }) {
   const handlerCreateTask = async () => {
     if (newTask) {
       await create(newTask);
-      document.querySelector(".Modal--create--overlay").style.display = "flex"
-      setTimeout (() => {
-         document.querySelector(".Modal--create--overlay").style.display = "none"
-      }, 2e3)  
+      document.querySelector(".Modal--create--overlay").style.display = "flex";
+      setTimeout(() => {
+        document.querySelector(".Modal--create--overlay").style.display =
+          "none";
+      }, 2e3);
     }
   };
 
