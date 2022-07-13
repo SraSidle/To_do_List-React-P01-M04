@@ -4,7 +4,7 @@ import "./App.css";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
 import Header from "../../components/Header/Header";
 import TaskList from "../../components/TaskList/TaskList";
-import Footer from "../../components/Footer/Footer"
+import Footer from "../../components/Footer/Footer";
 
 function App() {
   const [updateList, setUpdateList] = useState();
@@ -16,26 +16,26 @@ function App() {
   const [deletedTask, setDeletedTask] = useState();
 
   const handleDeleteTask = (taskToDelete) => {
-     setDeleteTask(taskToDelete)
-  }
+    setDeleteTask(taskToDelete);
+  };
 
   const handleCloseModal = () => {
     setUpdateTask();
     setDeleteTask();
-  }
+  };
 
   return (
     <div className="App">
-      <ModalDelete 
-      closeModal={handleCloseModal}
-      taskToDelete={deletedTask}  
-      onDeleteTask={(task) => setDeletedTask(task)}  
+      <ModalDelete
+        closeModal={handleCloseModal}
+        taskToDelete={deletedTask}
+        onDeleteTask={(task) => setDeletedTask(task)}
       />
-      <Header setUpdateList = {setUpdateList} />
+      <Header setUpdateList={setUpdateList} />
       <TaskList
-      updateList = {updateList}
-      deleteTask={handleDeleteTask} 
-      deletedTask = {deletedTask}
+        updateList={updateList}
+        deleteTask={handleDeleteTask}
+        deletedTask={deletedTask}
       />
       <Footer />
     </div>
