@@ -1,5 +1,5 @@
 import "./Overlay.css";
-import React from "react"
+import React from "react";
 
 function Overlay({ children, overlayClick }) {
   return (
