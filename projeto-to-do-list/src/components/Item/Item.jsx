@@ -1,9 +1,8 @@
 import React from "react";
 import "./Item.css";
 
-function Item({task, onModalEdit, onModalDelete}) {
-
-  const [delTaskModal, setDelTaskModal] = useState(false)
+function Item({ task, onModalEdit, onModalDelete }) {
+  const [delTaskModal, setDelTaskModal] = useState(false);
 
   return (
     <div className="task--list--item" key={`task--list-${"index"}`}>
@@ -15,7 +14,11 @@ function Item({task, onModalEdit, onModalDelete}) {
         <button type="button" className="" onClick={() => onModalEdit(task.id)}>
           <i className="bi bi-pencil-square"></i>
         </button>
-        <button type="button" className="" onClick={() => onModalDelete(task.id)}>
+        <button
+          type="button"
+          className=""
+          onClick={() => onModalDelete(task.id)}
+        >
           <i className="bi bi-trash"></i>
         </button>
       </div>
