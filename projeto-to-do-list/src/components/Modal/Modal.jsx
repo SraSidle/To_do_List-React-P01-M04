@@ -1,16 +1,9 @@
-import React from "react"
-// import {useState} from "react"
+import React from "react";
 import "./Modal.css";
 import Overlay from "../Overlay/Overlay";
 
 function Modal({ children, closeModal }) {
-
-  // const [closeModals, setCloseModals] = useState(false);
-
-  // const closeModal = () => {
-  //   setCloseModals(true)
-  // }
-
+ 
   const handleClick = (event, canClose) => {
     event.stopPropagation();
     if (canClose) closeModal();
