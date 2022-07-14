@@ -33,7 +33,7 @@
   color: white;
 }
 
-.icons-edit-delete > button{
+.icons-edit-delete > button {
   height: 2.5rem;
   background: transparent;
   outline: 0;
@@ -48,7 +48,7 @@ button > .bi {
 button > .bi-pencil-square,
 button > .bi-trash {
   color: gray;
-    width: 2rem;
+  width: 2rem;
   height: 2rem;
 }
 
