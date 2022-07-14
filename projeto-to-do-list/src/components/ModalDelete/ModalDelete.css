@@ -1,11 +1,11 @@
-.header-modal {
-  width: 100%;
-  background: linear-gradient(#15b4db, #0b969b);
-  padding: 0.2rem 0;
+.choice{
+  width: 80%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+}
+
+.text__p{
+  color: white;
 }
 
 .choice > button {
@@ -13,13 +13,14 @@
   padding: 0.7rem;
   border-radius: 0.2rem;
   font-weight: 700;
-  background-color: transparent;
+  background-color: rgb(25, 25, 25);
   box-shadow: 0px 0px 0px 1px #00000030;
 }
 
 .yes {
   color: red;
   border: 1px solid red;
+  background: white;
 }
 
 .yes:hover {
@@ -30,6 +31,7 @@
 .no {
   color: green;
   border: 1px solid green;
+  background: white;
 }
 
 .no:hover {
@@ -40,12 +42,13 @@ span {
   margin-left: 90%;
 }
 
-p {
+p{
   max-width: 90%;
 }
 
 .alert {
   font-weight: 600;
-  font-size: small;
-  margin-bottom: 1.5rem;
+  font-size: medium;
+  color: gray;
+  margin-bottom: 0;
 }

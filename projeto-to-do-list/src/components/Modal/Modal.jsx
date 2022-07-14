@@ -1,8 +1,16 @@
 import React from "react"
+// import {useState} from "react"
 import "./Modal.css";
 import Overlay from "../Overlay/Overlay";
 
 function Modal({ children, closeModal }) {
+
+  // const [closeModals, setCloseModals] = useState(false);
+
+  // const closeModal = () => {
+  //   setCloseModals(true)
+  // }
+
   const handleClick = (event, canClose) => {
     event.stopPropagation();
     if (canClose) closeModal();
@@ -15,7 +23,7 @@ function Modal({ children, closeModal }) {
           className="Modal__close"
           onClick={(event) => handleClick(event, true)}
         >
-          +
+          <i class="bi bi-x"></i>
         </span>
         <div className="Modal__body">{children}</div>
       </div>

@@ -5,14 +5,14 @@ import { TasksServices } from "../../services/TasksServices";
 
 function ModalDelete({ closeModal, taskToDelete, onDeleteTask }) {
   const handleDeleteTask = async (task) => {
-    await TasksServices.deleteById(task.id);
+    await TasksServices.deleteById(1);
     onDeleteTask(task);
     closeModal();
   };
 
   return (
-    <Modal closeModal={closeModal}>
-      <p> Tem certeza que deseja remover esse item?</p>
+    <Modal className="Modal" closeModal={closeModal}>
+      <p className="text__p"> Tem certeza que deseja remover esse item?</p>
       <div className="choice">
         <button className="yes" onClick={() => handleDeleteTask(taskToDelete)}>
           Sim
@@ -23,7 +23,7 @@ function ModalDelete({ closeModal, taskToDelete, onDeleteTask }) {
       </div>
       <p className="alert">
         {" "}
-        Em caso de remoção. Esse item deverá ser criado novamente!
+        <i class="bi bi-info-circle"></i> Em caso de remoção. Essa tarefa deverá ser criada novamente!
       </p>
     </Modal>
   );

@@ -1,12 +1,12 @@
 // import {useState} from "react"
 import React, { useState } from "react";
 import "./App.css";
-import ModalDelete from "../../components/ModalDelete/ModalDelete";
 import Header from "../../components/Header/Header";
 import TaskList from "../../components/TaskList/TaskList";
 import Footer from "../../components/Footer/Footer";
+// import ModalDelete from "../../components/ModalDelete/ModalDelete";
 
-function App() {
+function App(taskToDelete) {
   const [updateList, setUpdateList] = useState();
 
   const [updateTask, setUpdateTask] = useState();
@@ -26,11 +26,11 @@ function App() {
 
   return (
     <div className="App">
-      <ModalDelete
+      {/* <ModalDelete
         closeModal={handleCloseModal}
         taskToDelete={deletedTask}
         onDeleteTask={(task) => setDeletedTask(task)}
-      />
+      /> */}
       <Header setUpdateList={setUpdateList} />
       <TaskList
         updateList={updateList}
@@ -38,6 +38,12 @@ function App() {
         deletedTask={deletedTask}
       />
       <Footer />
+      {/* {taskToDelete && (
+        <ModalDelete
+          taskToDelete={taskToDelete}
+          closeModal={() => setDelTaskModal(true)}
+        />
+      )} */}
     </div>
   );
 }
