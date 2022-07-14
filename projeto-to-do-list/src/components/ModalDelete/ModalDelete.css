@@ -1,10 +1,10 @@
-.choice{
+.choice {
   width: 80%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.text__p{
+.text__p {
   color: white;
 }
 
@@ -42,7 +42,7 @@ span {
   margin-left: 90%;
 }
 
-p{
+p {
   max-width: 90%;
 }
 
