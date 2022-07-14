@@ -1,7 +1,6 @@
 import "./TaskList.css";
 import React, { useState, useEffect } from "react";
 import { TasksServices } from "../../services/TasksServices";
-import ModalDelete from "../ModalDelete/ModalDelete";
 import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
