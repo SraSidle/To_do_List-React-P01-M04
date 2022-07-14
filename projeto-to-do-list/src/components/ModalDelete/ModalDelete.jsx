@@ -23,7 +23,8 @@ function ModalDelete({ closeModal, taskToDelete, onDeleteTask }) {
       </div>
       <p className="alert">
         {" "}
-        <i class="bi bi-info-circle"></i> Em caso de remoção. Essa tarefa deverá ser criada novamente!
+        <i class="bi bi-info-circle"></i> Em caso de remoção. Essa tarefa deverá
+        ser criada novamente!
       </p>
     </Modal>
   );
