@@ -4,9 +4,13 @@ import { TasksServices } from "../../services/TasksServices";
 import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
-function TaskList({ updateList, updateTask, deleteTask, deletedTask }) {
+function TaskList({ updateList, updateTask, taskToDelete}) { //deleteTask
   //A chave é colocada para desconstruir a sintaxe props.updateList para se tornar apenas updateList
   const [tasks, setTasks] = useState([]);
+
+  const [deleteTask, setDeleteTask] = useState();
+
+  const [deletedTask, setDeletedTask] = useState();
 
   useEffect(() => {
     TasksServices.getlista().then(setTasks);
@@ -20,6 +24,7 @@ function TaskList({ updateList, updateTask, deleteTask, deletedTask }) {
           <Item
             key={`task--list-${index}`}
             task={task}
+            deletedTask={(task) => setDeleteTask(task.id)}
             // onModalDelete={setDelTaskModal(true)}
             // onModalEdit={}
           />
