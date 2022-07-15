@@ -3,10 +3,9 @@ import "./ModalDelete.css";
 import Modal from "../Modal/Modal.jsx";
 import { TasksServices } from "../../services/TasksServices";
 
-function ModalDelete({ closeModal, taskToDelete, onDeleteTask }) {
-  const handleDeleteTask = async (task) => {
-    await TasksServices.deleteById(1);
-    onDeleteTask(task);
+function ModalDelete({ closeModal, taskToDelete }) {
+  const handleDeleteTask = async (tasks) => {
+    await TasksServices.deleteById(tasks);
     closeModal();
   };
 
@@ -23,8 +22,8 @@ function ModalDelete({ closeModal, taskToDelete, onDeleteTask }) {
       </div>
       <p className="alert">
         {" "}
-        <i class="bi bi-info-circle"></i> Em caso de remoção. Essa tarefa deverá
-        ser criada novamente!
+        <i className="bi bi-info-circle"></i> Em caso de remoção. Essa tarefa
+        deverá ser criada novamente!
       </p>
     </Modal>
   );
