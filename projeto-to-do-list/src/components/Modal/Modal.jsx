@@ -16,7 +16,7 @@ function Modal({ children, closeModal }) {
           className="Modal__close"
           onClick={(event) => handleClick(event, true)}
         >
-          <i class="bi bi-x"></i>
+          <i className="bi bi-x"></i>
         </span>
         <div className="Modal__body">{children}</div>
       </div>
