@@ -3,11 +3,7 @@ import { useState, useEffect } from "react";
 import ModalDelete from "../ModalDelete/ModalDelete";
 import "./Item.css";
 
-function Item({ 
-  task,
-  onModalEdit, 
-  taskToDelete,
-  deletedTask}) {
+function Item({ task, onModalEdit, taskToDelete}) {
   const [delTaskModal, setDelTaskModal] = useState(false);
 
   const booleanModal = () => {
@@ -18,9 +14,9 @@ function Item({
     <div className="task--list--item" key={`task--list-${"index"}`}>
       {delTaskModal && (
         <ModalDelete
-        taskToDelete={task.id}
-        closeModal={() => setDelTaskModal(false)} 
-        onDeleteTask={taskToDelete}
+          taskToDelete={task.id}
+          closeModal={() => setDelTaskModal(false)}
+          onDeleteTask={taskToDelete}
         />
       )}
       <div className="check--item">
