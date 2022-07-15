@@ -17,7 +17,7 @@ function Header({ setUpdateList }) {
         checked: false,
       }),
     });
-    setUpdateList((prev) => !prev);
+    setUpdateList(response); //((prev) => !prev)
   };
 
   const handlerCreateTask = async () => {
@@ -38,6 +38,7 @@ function Header({ setUpdateList }) {
       </h1>
       <div className="Modal--create--overlay">
         <div className="Modal--create">
+          <i className="bi bi-info-circle"></i>
           <p>Tarefa criada com sucesso!</p>
         </div>
       </div>
