@@ -4,46 +4,28 @@ import "./App.css";
 import Header from "../../components/Header/Header";
 import TaskList from "../../components/TaskList/TaskList";
 import Footer from "../../components/Footer/Footer";
-// import ModalDelete from "../../components/ModalDelete/ModalDelete";
 
-function App(taskToDelete) {
+function App() {
   const [updateList, setUpdateList] = useState();
 
-  const [updateTask, setUpdateTask] = useState();
+  // const [updateTask, setUpdateTask] = useState();
 
-  const [deleteTask, setDeleteTask] = useState();
+  // const handleDeleteTask = (taskToDelete) => {
+  //   setDeleteTask(taskToDelete);
+  // };
 
-  const [deletedTask, setDeletedTask] = useState();
-
-  const handleDeleteTask = (taskToDelete) => {
-    setDeleteTask(taskToDelete);
-  };
-
-  const handleCloseModal = () => {
-    setUpdateTask();
-    setDeleteTask();
-  };
+  // const handleCloseModal = () => {
+  //   setUpdateTask();
+  //   setDeleteTask();
+  // };
 
   return (
     <div className="App">
-      {/* <ModalDelete
-        closeModal={handleCloseModal}
-        taskToDelete={deletedTask}
-        onDeleteTask={(task) => setDeletedTask(task)}
-      /> */}
       <Header setUpdateList={setUpdateList} />
       <TaskList
-        updateList={updateList}
-        deleteTask={handleDeleteTask}
-        deletedTask={deletedTask}
+      // taskToDelete={}
       />
       <Footer />
-      {/* {taskToDelete && (
-        <ModalDelete
-          taskToDelete={taskToDelete}
-          closeModal={() => setDelTaskModal(true)}
-        />
-      )} */}
     </div>
   );
 }
