@@ -11,8 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header setUpdateList={setUpdateList} />
-      <TaskList updateList={updateList}
-      />
+      <TaskList updateList={updateList} />
       <Footer />
     </div>
   );
