@@ -4,17 +4,17 @@ import { TasksServices } from "../../services/TasksServices";
 import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
-function TaskList({ updateList, updateTask}) {
+function TaskList({ updateList, updateTask }) {
   //A chave é colocada para desconstruir a sintaxe props.updateList para se tornar apenas updateList
   const [tasks, setTasks] = useState([]);
 
   const [deleteTask, setDeleteTask] = useState();
 
-  const deletedTask = useCallback(() =>{
-      const listTasks = [...tasks, deleteTask]
-      setTasks(listTasks)
-  }, [tasks])
-  
+  const deletedTask = useCallback(() => {
+    const listTasks = [...tasks, deleteTask];
+    setTasks(listTasks);
+  }, [tasks]);
+
   useEffect(() => {
     TasksServices.getlista().then(setTasks);
   }, [updateList, updateTask, deletedTask]);
