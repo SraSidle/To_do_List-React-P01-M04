@@ -12,8 +12,6 @@ function SearchTask({ setTasks }) {
     } else {
       TasksServices.getlista().then(setTasks);
     }
-    // console.log("response:", response)
-    // console.log("found:", found) //found só tem o mesmo valor de response após dois clicks
   };
 
   useEffect(() => {}, []);
