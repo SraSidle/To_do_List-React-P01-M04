@@ -17,8 +17,8 @@ export const TasksServices = {
         body: JSON.stringify(task),
         mode: "cors",
         headers: { "Content-Type": "application/json" },
-      }).then(parseResponse)
-    ),
+      })
+    ).then(parseResponse),
   deleteById: (id) =>
     fetch(Api.baseURL + `/tasks/${id}`, { method: "DELETE" }).then(
       parseResponse
