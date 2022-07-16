@@ -4,9 +4,11 @@ import { TasksServices } from "../../services/TasksServices";
 import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
-function TaskList({ updateList, updateTask }) {
+function TaskList({ updateList, updatedTask }) {
   //A chave é colocada para desconstruir a sintaxe props.updateList para se tornar apenas updateList
   const [tasks, setTasks] = useState([]);
+
+  const [updateTask, setUpdateTask] = useState();
 
   const [deleteTask, setDeleteTask] = useState();
 
@@ -17,7 +19,7 @@ function TaskList({ updateList, updateTask }) {
 
   useEffect(() => {
     TasksServices.getlista().then(setTasks);
-  }, [updateList, updateTask, deletedTask]);
+  }, [updateList, deletedTask]);
 
   return (
     <div className="task--list">
