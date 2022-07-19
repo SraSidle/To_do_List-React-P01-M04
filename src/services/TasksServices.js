@@ -2,8 +2,6 @@ import { Api } from "../helpers/Api";
 
 const parseResponse = (response) => response.json();
 
-console.log(Api.baseURL)
-
 export const TasksServices = {
   getlista: () =>
     fetch(Api.baseURL + "/tasks", { method: "GET" }).then(parseResponse),
