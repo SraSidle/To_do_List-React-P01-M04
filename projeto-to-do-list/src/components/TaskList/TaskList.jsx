@@ -1,27 +1,19 @@
 import "./TaskList.css";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { TasksServices } from "../../services/TasksServices";
 import SearchTask from "../Search/Search";
 import Item from "../Item/Item";
 
-function TaskList({ updateList, updatedTask }) {
+function TaskList({ updateList }) {
   //A chave é colocada para desconstruir a sintaxe props.updateList para se tornar apenas updateList
   const [tasks, setTasks] = useState([]);
 
-  // const [updateTask, setUpdateTask] = useState();
-
   const [deleteTask, setDeleteTask] = useState();
 
-  // const deletedTask = useCallback(() => {
-  //   TasksServices.getlista().then(setTasks);
+  // const deletedTask = () => {
   //   const listTasks = [...tasks, deleteTask];
-  //   setTasks(listTasks);
-  // }, [tasks]); => não será utilizado, pois dá erro no search
-
-  const deletedTask = () => {
-    const listTasks = [...tasks, deleteTask]
-    setTasks(listTasks)
-  }
+  //   setTasks(listTasks)
+  // };
 
   useEffect(() => {
     TasksServices.getlista().then(setTasks);
