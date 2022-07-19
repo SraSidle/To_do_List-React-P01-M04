@@ -14,7 +14,7 @@ function SearchTask({ setTasks }) {
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [setTasks]);
 
   return (
     <div className="align-end">
