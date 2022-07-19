@@ -34,31 +34,32 @@ header > form {
     width: 90%;
   }
 }
-.bi-list-check{
-  margin-right: .7rem;
+.bi-list-check {
+  margin-right: 0.7rem;
 }
 
 button.bi {
   padding: 0;
   background-color: transparent;
-  color:rgba(128, 128, 128, 0.808);
-  margin: 0.2rem;
+  padding: 0.2rem;
+  color: rgb(180, 180, 180);
+  margin: 0.3rem;
   border-radius: 50%;
   border: none;
   transition: ease-in-out 0.5s;
 }
 
 button:hover {
-  color: wheat;
+  color: white;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .bi-plus-lg {
   padding: 0.3rem;
-  font-size: larger;
 }
 
-input{
+input {
   width: 100%;
   background-color: transparent;
   border: none;
