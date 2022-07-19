@@ -8,18 +8,24 @@ function TaskList({ updateList, updatedTask }) {
   //A chave é colocada para desconstruir a sintaxe props.updateList para se tornar apenas updateList
   const [tasks, setTasks] = useState([]);
 
-  const [updateTask, setUpdateTask] = useState();
+  // const [updateTask, setUpdateTask] = useState();
 
   const [deleteTask, setDeleteTask] = useState();
 
-  const deletedTask = useCallback(() => {
-    const listTasks = [...tasks, deleteTask];
-    setTasks(listTasks);
-  }, [tasks]);
+  // const deletedTask = useCallback(() => {
+  //   TasksServices.getlista().then(setTasks);
+  //   const listTasks = [...tasks, deleteTask];
+  //   setTasks(listTasks);
+  // }, [tasks]); => não será utilizado, pois dá erro no search
+
+  const deletedTask = () => {
+    const listTasks = [...tasks, deleteTask]
+    setTasks(listTasks)
+  }
 
   useEffect(() => {
     TasksServices.getlista().then(setTasks);
-  }, [updateList, deletedTask]);
+  }, [updateList, deleteTask]); // use calback dá erro no search
 
   return (
     <div className="task--list">
