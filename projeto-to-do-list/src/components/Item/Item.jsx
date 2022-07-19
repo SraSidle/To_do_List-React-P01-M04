@@ -4,7 +4,7 @@ import ModalDelete from "../ModalDelete/ModalDelete";
 import ModalEdit from "../ModalEdit/ModalEdit"
 import "./Item.css";
 
-function Item({ task, taskToDelete}) {
+function Item({ task, taskToDelete }) {
   const [delTaskModal, setDelTaskModal] = useState(false);
 
   const [editTaskModal, setEditTaskModal] = useState(false)
@@ -30,7 +30,8 @@ function Item({ task, taskToDelete}) {
         <p className="Task-name">{task.title}</p>
       </div>
       <div className="icons-edit-delete">
-        <button type="button" className="" onClick={() => setEditTaskModal(true)}>
+        <button type="button" className="" onClick={() => {setEditTaskModal(true);
+          console.log(task.id)}}>
           <i className="bi bi-pencil-square"></i>
         </button>
         <button type="button" className="" onClick={() => setDelTaskModal(true)}>
