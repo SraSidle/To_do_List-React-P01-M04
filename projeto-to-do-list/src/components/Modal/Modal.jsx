@@ -3,7 +3,6 @@ import "./Modal.css";
 import Overlay from "../Overlay/Overlay";
 
 function Modal({ children, closeModal }) {
- 
   const handleClick = (event, canClose) => {
     event.stopPropagation();
     if (canClose) closeModal();
