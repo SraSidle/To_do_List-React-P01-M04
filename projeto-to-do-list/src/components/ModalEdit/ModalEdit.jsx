@@ -5,7 +5,6 @@ import Modal from "../Modal/Modal";
 import { TasksServices } from "../../services/TasksServices";
 
 function ModalEdit({ closeModal, taskTitle, taskId }) {
-  // const [taskToUpdate, setTaskToUpdate] = useState({title:""});
 
   const [taskUpdated, setTaskUpdated] = useState({
     title: taskTitle,
@@ -14,12 +13,9 @@ function ModalEdit({ closeModal, taskTitle, taskId }) {
   });
 
   const editTask = async (tasks, taskupdate) => {
-    // tasks = taskId;
     delete taskupdate.id;
-    const response = await TasksServices.updateById(tasks, taskupdate);
+    await TasksServices.updateById(tasks, taskupdate);
     closeModal();
-    // taskupdate = taskToUpdate
-    // setTaskUpdated(response)
   };
 
   return (
@@ -36,13 +32,12 @@ function ModalEdit({ closeModal, taskTitle, taskId }) {
           type="text"
           placeholder={taskTitle}
           value={taskUpdated.title} //
-          name="title" //add name e value
+          name="title" //add name e value, essenciais para o input controlado
           onChange={(event) =>
             setTaskUpdated({ ...taskUpdated, title: event.target.value })
           }
         />
         <button type="submit">
-          {/* //onClick={() => editTask()} */}
           Atualizar
         </button>
       </form>

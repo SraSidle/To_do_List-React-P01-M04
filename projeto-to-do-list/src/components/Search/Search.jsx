@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./search.css";
 import { TasksServices } from "../../services/TasksServices";
 
@@ -13,8 +13,6 @@ function SearchTask({ setTasks }) {
       TasksServices.getlista().then(setTasks);
     }
   };
-
-  useEffect(() => {}, [setTasks]);
 
   return (
     <div className="align-end">
