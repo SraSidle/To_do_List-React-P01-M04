@@ -5,7 +5,6 @@ import Modal from "../Modal/Modal";
 import { TasksServices } from "../../services/TasksServices";
 
 function ModalEdit({ closeModal, taskTitle, taskId }) {
-
   const [taskUpdated, setTaskUpdated] = useState({
     title: taskTitle,
     id: taskId,
@@ -20,6 +19,7 @@ function ModalEdit({ closeModal, taskTitle, taskId }) {
 
   return (
     <Modal closeModal={closeModal}>
+      <p className="title-edit">Editar Tarefa</p>
       <form
         className="form__edit"
         onSubmit={(event) => {
@@ -29,6 +29,7 @@ function ModalEdit({ closeModal, taskTitle, taskId }) {
         }}
       >
         <input
+          className="input-edit"
           type="text"
           placeholder={taskTitle}
           value={taskUpdated.title} //
@@ -37,7 +38,7 @@ function ModalEdit({ closeModal, taskTitle, taskId }) {
             setTaskUpdated({ ...taskUpdated, title: event.target.value })
           }
         />
-        <button type="submit">
+        <button type="submit" className="button-edit">
           Atualizar
         </button>
       </form>
